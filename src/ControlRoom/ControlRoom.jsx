@@ -21,9 +21,6 @@ const ControlRoom = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    // signOut
-
-
     // observer
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {

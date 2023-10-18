@@ -1,11 +1,26 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import './navbar.css';
 import logo from '../../assets/images/mainlogo.jpg';
 import defaultProfile from '../../assets/images/defaultProfile.jpg'
 import useGlobal from "../../Hooks/useGlobal";
+import { signOut } from "firebase/auth";
+import auth from "../../Firebase/firebase.config";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
     const { user } = useGlobal();
+    const navigate = useNavigate();
+
+    const handleLogOut = () => {
+        signOut(auth)
+            .then(() => {
+                toast.success('Log out successfull!');
+                navigate('/login');
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
+    }
 
     const links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
@@ -46,35 +61,43 @@ const Navbar = () => {
                 </div>
 
 
-                <div className="navbar-end space-x-2">
-                    <div className="hidden md:flex md:items-center md:justify-center gap-4">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-12 rounded-full">
-                                <img src={defaultProfile} />
+                {
+                    user ?
+                        <div className="navbar-end space-x-2">
+                            <div className="hidden md:flex md:items-center md:justify-center gap-4">
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-12 rounded-full">
+                                        <img src={user?.photoURL || defaultProfile} />
+                                    </div>
+                                </label>
+                                <p className="font-bold">{user?.displayName || 'Mr. Legend'}</p>
                             </div>
-                        </label>
-                        <a className="">Name</a>
-                        <a className="btn btn-outline">Login</a>
-                    </div>
 
-                    <div className="dropdown dropdown-end md:hidden">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-12 rounded-full">
-                                <img src={defaultProfile} />
+                            <div className="dropdown dropdown-end md:hidden">
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-12 rounded-full">
+                                        <img src={user?.photoURL || defaultProfile} />
+                                    </div>
+                                </label>
+                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-sky-200 rounded-box w-52">
+                                    <li>
+                                        <p className="justify-between font-bold">
+                                            {user?.displayName || 'Mr Legend'}
+                                        </p>
+                                    </li>
+                                    <li><p onClick={handleLogOut}>Logout</p></li>
+                                </ul>
                             </div>
-                        </label>
-                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-sky-200 rounded-box w-52">
-                            <li>
-                                <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </a>
-                            </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
-                        </ul>
-                    </div>
-                </div>
+                        </div>
+                        :
+                        <div className="navbar-end space-x-2">
+                            <button className="btn btn-outline btn-sm md:btn-md">
+                                <Link to={'/login'}>Login</Link>
+                            </button>
+                        </div>
+                }
+
+
 
 
             </div>
