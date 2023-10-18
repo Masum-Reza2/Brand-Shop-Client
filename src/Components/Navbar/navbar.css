@@ -1,0 +1,8 @@
+.active {
+  box-shadow: 2px 3px 4px black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: rgb(153, 109, 26);
+  transition: all 0.2s ease-in-out;
+}
