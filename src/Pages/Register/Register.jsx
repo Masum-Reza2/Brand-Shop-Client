@@ -1,9 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import toast from "react-hot-toast";
+import useGlobal from "../../Hooks/useGlobal";
+import { signOut } from "firebase/auth";
+import auth from "../../Firebase/firebase.config";
+import Swal from "sweetalert2";
+import welcomeMan from '../../assets/images/welcome-man-statue-500x500-removebg-preview.png'
 
 const Register = () => {
+    const { createUser } = useGlobal();
+    const navigate = useNavigate();
+
     // toggling eye
     const [showPaas, setShowPaas] = useState(false);
     const handleTogglePass = () => {
@@ -24,6 +32,34 @@ const Register = () => {
         if (password.length < 6) {
             return toast.error('Password should be at least 6 charecters in length.');
         }
+        else if (!/^(?=.*[A-Z])(?=.*[\W_]).+$/.test(password)) {
+            return toast.error('Include at least 1 Capital letter and 1 Special Charecter.')
+        }
+
+        // creating account
+        createUser(email, password)
+            .then(result => {
+                if (result.user) {
+                    toast.success('Account created successfully!');
+                    // signing out user to prevent auto login
+                    signOut(auth);
+                    navigate('/login');
+                    setTimeout(() => {
+                        Swal.fire({
+                            title: `Welcome ${name}!`,
+                            text: 'Please Login',
+                            imageUrl: welcomeMan,
+                            imageWidth: 200,
+                            imageHeight: 200,
+                            imageAlt: 'Custom image',
+                        })
+                    }, 1500);
+                }
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
+        form.reset();
     }
 
     return (

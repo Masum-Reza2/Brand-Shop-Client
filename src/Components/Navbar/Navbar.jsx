@@ -2,8 +2,10 @@ import { NavLink } from "react-router-dom";
 import './navbar.css';
 import logo from '../../assets/images/mainlogo.jpg';
 import defaultProfile from '../../assets/images/defaultProfile.jpg'
+import useGlobal from "../../Hooks/useGlobal";
 
 const Navbar = () => {
+    const { user } = useGlobal();
 
     const links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>

@@ -6,6 +6,7 @@ import AddProduct from "../Pages/AddProduct/AddProduct"
 import MyCart from "../Pages/MyCart/MyCart"
 import Login from "../Pages/Login/Login"
 import Register from "../Pages/Register/Register"
+import PrivateRoute from "../PrivateRoute/PrivateRoute"
 
 const Router = createBrowserRouter([
     {
@@ -14,8 +15,8 @@ const Router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
             { path: '/', element: <Home /> },
-            { path: '/addProduct', element: <AddProduct /> },
-            { path: '/myCart', element: <MyCart /> },
+            { path: '/addProduct', element: <PrivateRoute><AddProduct /></PrivateRoute> },
+            { path: '/myCart', element: <PrivateRoute><MyCart /></PrivateRoute> },
             { path: '/login', element: <Login /> },
             { path: '/register', element: <Register /> },
         ]
