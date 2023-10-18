@@ -113,7 +113,7 @@ const Login = () => {
                 {/* submit button */}
                 <div className="p-6 pt-0">
                     <button
-                        className="block w-full select-none rounded-lg bg-purple-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-black/20 transition-all hover:shadow-lg hover:shadow-black active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        className="block w-full select-none rounded-lg bg-indigo-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-black/20 transition-all hover:shadow-lg hover:shadow-black active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="submit"
                         data-ripple-light="true"
                     >
@@ -134,7 +134,7 @@ const Login = () => {
             <div className="flex w-[90vw] md:w-[60vw] lg:w-[40vw] border flex-col rounded-xl text-gray-700 shadow-md mx-auto py-5 mt-5">
                 <p className="text-center border-y border-black my-2">or</p>
                 <div className="w-full flex justify-center">
-                    <button onClick={handleGoogle} className="mt-2 btn hover:bg-black rounded-md w-[90%] bg-purple-600 text-white ">Login with Google<FcGoogle className="text-2xl" /></button>
+                    <button onClick={handleGoogle} className="mt-2 btn hover:bg-black rounded-md w-[90%] bg-indigo-600 text-white ">Login with Google<FcGoogle className="text-2xl" /></button>
                 </div>
             </div>
 

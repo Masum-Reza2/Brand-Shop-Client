@@ -32,7 +32,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-purple-200 shadow-md shadow-black">
+            <div className="navbar bg-indigo-200 shadow-md shadow-black">
                 {/* mobile */}
                 <div className="navbar-start">
                     <div className="dropdown">
