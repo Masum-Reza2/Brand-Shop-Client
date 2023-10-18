@@ -54,12 +54,12 @@ const Register = () => {
                             imageAlt: 'Custom image',
                         })
                     }, 1500);
+                    form.reset();
                 }
             })
             .catch(error => {
                 toast.error(error.message)
             })
-        form.reset();
     }
 
     return (
