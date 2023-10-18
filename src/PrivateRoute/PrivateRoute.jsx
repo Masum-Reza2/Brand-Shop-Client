@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useGlobal();
-    const { path } = useLocation();
+    const { pathname } = useLocation();
 
     if (loading) {
         return <Spinner />
@@ -15,7 +15,7 @@ const PrivateRoute = ({ children }) => {
         return children;
     }
     else {
-        return <Navigate state={path} to={'/login'}></Navigate>
+        return <Navigate state={pathname} to={'/login'}></Navigate>
     }
 }
 

@@ -4,10 +4,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 import useGlobal from "../../Hooks/useGlobal";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
-import hurray from '../../assets/images/loginHurray-removebg-preview.png'
+import hurray from '../../assets/images/loginHurray-removebg-preview.png';
+import { FcGoogle } from 'react-icons/fc';
+import { GoogleAuthProvider } from "firebase/auth";
+
 
 const Login = () => {
-    const { loginUser } = useGlobal();
+    const { loginUser, googleLogin } = useGlobal();
     const navigate = useNavigate();
     const { state } = useLocation();
 
@@ -43,8 +46,31 @@ const Login = () => {
             })
     }
 
+
+    // google login
+    const googleProvider = new GoogleAuthProvider();
+    const handleGoogle = () => {
+        googleLogin(googleProvider)
+            .then(result => {
+                if (result.user) {
+                    navigate(state || '/');
+                    Swal.fire({
+                        title: `Hurray!`,
+                        text: 'You have successfully logged in!',
+                        imageUrl: hurray,
+                        imageWidth: 400,
+                        // imageHeight: 200,
+                        imageAlt: 'Custom image',
+                    })
+                }
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
+    }
+
     return (
-        <div className="py-5 min-h-screen flex items-center justify-center">
+        <div className="py-5 min-h-screen flex flex-col items-center justify-center">
             <form onSubmit={handleLogin} className="relative flex w-[90vw] md:w-[60vw] lg:w-[40vw] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-auto py-5">
 
                 <h1 className="text-center font-bold text-xl md:text-2xl">Login</h1>
@@ -103,8 +129,16 @@ const Login = () => {
                         </Link>
                     </p>
                 </div>
-
             </form>
+
+            <div className="flex w-[90vw] md:w-[60vw] lg:w-[40vw] border flex-col rounded-xl text-gray-700 shadow-md mx-auto py-5 mt-5">
+                <p className="text-center border-y border-black my-2">or</p>
+                <div className="w-full flex justify-center">
+                    <button onClick={handleGoogle} className="mt-2 btn hover:bg-black rounded-md w-[90%] bg-purple-600 text-white ">Login with Google<FcGoogle className="text-2xl" /></button>
+                </div>
+            </div>
+
+
         </div>
     )
 }

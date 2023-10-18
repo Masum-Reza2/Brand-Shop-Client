@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import auth from "../Firebase/firebase.config";
 
 export const GlobalContext = createContext();
@@ -21,6 +21,11 @@ const ControlRoom = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
+    // signinWithGoogle 
+    const googleLogin = (provider) => {
+        return signInWithPopup(auth, provider)
+    }
+
     // observer
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -39,6 +44,7 @@ const ControlRoom = ({ children }) => {
         loading,
         createUser,
         loginUser,
+        googleLogin,
     }
     return (
         <GlobalContext.Provider value={globalInfo}>

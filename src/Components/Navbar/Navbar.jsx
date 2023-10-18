@@ -71,6 +71,7 @@ const Navbar = () => {
                                     </div>
                                 </label>
                                 <p className="font-bold">{user?.displayName || 'Mr. Legend'}</p>
+                                <button className="btn btn-outline" onClick={handleLogOut}>Logout</button>
                             </div>
 
                             <div className="dropdown dropdown-end md:hidden">
@@ -91,9 +92,11 @@ const Navbar = () => {
                         </div>
                         :
                         <div className="navbar-end space-x-2">
-                            <button className="btn btn-outline btn-sm md:btn-md">
-                                <Link to={'/login'}>Login</Link>
-                            </button>
+                            <Link to={'/login'}>
+                                <button className="btn btn-outline btn-sm md:btn-md">
+                                    Login
+                                </button>
+                            </Link>
                         </div>
                 }
 
