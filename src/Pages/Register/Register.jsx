@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 import welcomeMan from '../../assets/images/welcome-man-statue-500x500-removebg-preview.png'
 
 const Register = () => {
-    const { createUser } = useGlobal();
+    const { createUser, profileUpdate } = useGlobal();
     const navigate = useNavigate();
 
     // toggling eye
@@ -43,6 +43,16 @@ const Register = () => {
                     toast.success('Account created successfully!');
                     // signing out user to prevent auto login
                     signOut(auth);
+
+                    // profile update
+                    profileUpdate(name, photo)
+                        .then(() => {
+                            // console.log('profile updated');
+                        })
+                        .catch(error => {
+                            toast.error(error.message);
+                        })
+
                     navigate('/login');
                     setTimeout(() => {
                         Swal.fire({

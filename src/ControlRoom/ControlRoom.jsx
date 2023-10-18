@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
 import auth from "../Firebase/firebase.config";
 
 export const GlobalContext = createContext();
@@ -26,6 +26,13 @@ const ControlRoom = ({ children }) => {
         return signInWithPopup(auth, provider)
     }
 
+    // profile Update
+    const profileUpdate = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo,
+        })
+    }
+
     // observer
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -43,6 +50,7 @@ const ControlRoom = ({ children }) => {
         user,
         loading,
         createUser,
+        profileUpdate,
         loginUser,
         googleLogin,
     }
