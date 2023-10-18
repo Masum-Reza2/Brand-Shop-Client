@@ -13,9 +13,11 @@ const ErrorPage = () => {
                 <p className='font-semibold'>
                     <i>{error.statusText || error.message}</i>
                 </p>
-                <button className='btn btn-sm btn-outline '>
-                    <Link to={'/'}>Goto Home</Link>
-                </button>
+                <Link to={'/'}>
+                    <button className='btn btn-sm btn-outline '>
+                        Goto Home
+                    </button>
+                </Link>
             </div>
         </div>
     )
