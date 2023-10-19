@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const SamsungUpdate = () => {
+const IntelUpdate = () => {
     const oldProduct = useLoaderData();
     const { image, name, brandName, type, price, shortDesc, rating, _id } = oldProduct;
 
@@ -28,7 +28,7 @@ const SamsungUpdate = () => {
             confirmButtonText: 'Yes, update it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/singleSamsung/${_id}`, {
+                fetch(`http://localhost:5000/singleIntel/${_id}`, {
                     method: 'PUT',
                     body: JSON.stringify(updateProduct),
                     headers: {
@@ -64,7 +64,6 @@ const SamsungUpdate = () => {
         })
 
     }
-
     return (
         <div className="w-[90%] mx-auto py-5 min-h-screen md:min-h-[80vh] flex flex-col items-center justify-center">
             <h1 className="py-2 md:py-5 font-semibold">Update {name}</h1>
@@ -118,4 +117,4 @@ const SamsungUpdate = () => {
     )
 }
 
-export default SamsungUpdate
+export default IntelUpdate
