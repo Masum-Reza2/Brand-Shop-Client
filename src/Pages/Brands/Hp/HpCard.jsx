@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import useGlobal from '../../../Hooks/useGlobal';
 const HpCard = ({ singleData }) => {
+    const { user } = useGlobal();
     const { image, name, brandName, type, price, shortDesc, rating, _id } = singleData;
     return (
         <div>
@@ -21,10 +23,10 @@ const HpCard = ({ singleData }) => {
                         </div>
 
                         <div className="card-actions justify-center pt-3">
-                            <Link to={`/Hp/details/${_id}`}>
+                            <Link to={user ? `/Hp/details/${_id}` : '/login'}>
                                 <button className="btn btn-sm md:btn-md">Details</button>
                             </Link>
-                            <Link to={`/hp/${_id}`}>
+                            <Link to={user ? `/hp/${_id}` : '/login'}>
                                 <button className="btn btn-sm md:btn-md">Update</button>
                             </Link>
                         </div>

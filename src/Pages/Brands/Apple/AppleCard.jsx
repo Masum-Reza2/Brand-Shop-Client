@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import useGlobal from '../../../Hooks/useGlobal';
 
 const AppleCard = ({ singleData }) => {
-    const { image, name, brandName, type, price, shortDesc, rating, _id } = singleData;
+    const { user } = useGlobal();
+    const { image, name, brandName, type, price, rating, _id } = singleData;
     return (
         <div>
             <div className="card card-compact h-full w-full border bg-base-100 shadow-xl ">
@@ -21,10 +23,10 @@ const AppleCard = ({ singleData }) => {
                     </div>
 
                     <div className="card-actions justify-center pt-3">
-                        <Link to={`/Apple/details/${_id}`}>
+                        <Link to={user ? `/Apple/details/${_id}` : '/login'}>
                             <button className="btn btn-sm md:btn-md">Details</button>
                         </Link>
-                        <Link to={`/apple/${_id}`}>
+                        <Link to={user ? `/apple/${_id}` : '/login'}>
                             <button className="btn btn-sm md:btn-md">Update</button>
                         </Link>
                     </div>
