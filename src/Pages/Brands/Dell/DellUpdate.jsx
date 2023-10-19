@@ -50,7 +50,7 @@ const DellUpdate = () => {
                         else {
                             Swal.fire(
                                 'Oops!',
-                                'Something went wrong!',
+                                'You changed nothing!',
                                 'error'
                             )
                         }

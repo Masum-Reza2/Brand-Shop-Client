@@ -49,7 +49,7 @@ const AddProduct = () => {
 
     return (
         <div className="w-[90%] mx-auto py-5 min-h-screen md:min-h-[80vh] flex flex-col items-center justify-center">
-            <h1 className="py-2 md:py-5 font-semibold">Add A Brand</h1>
+            <h1 className="py-2 md:py-5 font-semibold">Add product for Apple.</h1>
             <form onSubmit={handleAddProduct} className="space-y-3">
                 {/* image and name */}
                 <div className="flex flex-col md:flex-row w-full gap-3 max-w-7xl">
