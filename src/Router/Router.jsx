@@ -32,7 +32,8 @@ const Router = createBrowserRouter([
             { path: '/register', element: <Register /> },
 
             // Brands route
-            { path: '/Apple', element: <Apple /> },
+            { path: '/Apple', element: <Apple />, loader: () => fetch('http://localhost:5000/apple') },
+            { path: '/apple/:id', element: <SamsungUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleApple/${params.id}`) },
 
             // samsung
             { path: '/Samsung', element: <Samsung />, loader: () => fetch('http://localhost:5000/samsung') },
