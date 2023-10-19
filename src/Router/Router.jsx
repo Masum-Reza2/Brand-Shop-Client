@@ -60,6 +60,7 @@ const Router = createBrowserRouter([
             { path: '/hp/:id', element: <HpUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleHp/${params.id}`) },
             { path: '/Hp/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`http://localhost:5000/singleHp/${params.id}`) },
 
+            // dell
             { path: '/Dell', element: <Dell />, loader: () => fetch('http://localhost:5000/dell') },
             { path: '/dell/:id', element: <DellUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleDell/${params.id}`) },
             { path: '/Dell/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`http://localhost:5000/singleDell/${params.id}`) },

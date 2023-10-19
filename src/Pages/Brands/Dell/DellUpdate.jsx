@@ -1,10 +1,11 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const DellUpdate = () => {
 
     const oldProduct = useLoaderData();
     const { image, name, brandName, type, price, shortDesc, rating, _id } = oldProduct;
+    const navigate = useNavigate();
 
     const handleUpdate = e => {
         e.preventDefault();
@@ -39,6 +40,7 @@ const DellUpdate = () => {
                     .then((response) => response.json())
                     .then((json) => {
                         if (json.modifiedCount) {
+                            navigate('/Dell')
                             Swal.fire(
                                 'Updated!',
                                 'Your product has been updated.',

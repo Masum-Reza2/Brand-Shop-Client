@@ -22,7 +22,7 @@ const Brands = () => {
 
     return (
         <div className="w-[90%] mx-auto md:pt-10">
-            <h1 className="text-center text-xl md:text-2xl font-bold">Our-Brands</h1>
+            <h1 className="text-center text-xl md:text-2xl font-bold">Brands-we-offer!</h1>
 
             <div className="grid gap-10 place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-5">
                 {
