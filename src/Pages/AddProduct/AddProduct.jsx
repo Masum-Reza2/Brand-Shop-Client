@@ -18,7 +18,7 @@ const AddProduct = () => {
         // console.log(image, name, brandName, type, price, shortDesc, rating);
         // sending to database
         const product = { image, name, brandName, type, price, shortDesc, rating }
-        fetch('http://localhost:5000/apple', {
+        fetch('http://localhost:5000/samSlider', {
             method: 'POST',
             body: JSON.stringify(product),
             headers: {
