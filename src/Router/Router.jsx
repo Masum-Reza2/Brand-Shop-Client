@@ -16,6 +16,7 @@ import Dell from "../Pages/Brands/Dell/Dell"
 import SamsungUpdate from "../Pages/Brands/Samsung/SamsungUpdate"
 import SonyUpdate from "../Pages/Brands/Sony/SonyUpdate"
 import IntelUpdate from "../Pages/Brands/Intel/IntelUpdate"
+import HpUpdate from "../Pages/Brands/Hp/HpUpdate"
 
 const Router = createBrowserRouter([
     {
@@ -44,7 +45,10 @@ const Router = createBrowserRouter([
             { path: '/Intel', element: <Intel />, loader: () => fetch('http://localhost:5000/intel') },
             { path: '/intel/:id', element: <IntelUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleIntel/${params.id}`) },
 
-            { path: '/Hp', element: <Hp /> },
+            // hp
+            { path: '/Hp', element: <Hp />, loader: () => fetch('http://localhost:5000/hp') },
+            { path: '/hp/:id', element: <HpUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleHp/${params.id}`) },
+
             { path: '/Dell', element: <Dell /> },
         ]
     }
