@@ -21,7 +21,9 @@ const HpCard = ({ singleData }) => {
                         </div>
 
                         <div className="card-actions justify-center pt-3">
-                            <button className="btn btn-sm md:btn-md">Details</button>
+                            <Link to={`/Hp/details/${_id}`}>
+                                <button className="btn btn-sm md:btn-md">Details</button>
+                            </Link>
                             <Link to={`/hp/${_id}`}>
                                 <button className="btn btn-sm md:btn-md">Update</button>
                             </Link>

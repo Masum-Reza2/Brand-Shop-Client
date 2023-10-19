@@ -18,6 +18,8 @@ import SonyUpdate from "../Pages/Brands/Sony/SonyUpdate"
 import IntelUpdate from "../Pages/Brands/Intel/IntelUpdate"
 import HpUpdate from "../Pages/Brands/Hp/HpUpdate"
 import DellUpdate from "../Pages/Brands/Dell/DellUpdate"
+import AppleUpdate from "../Pages/Brands/Apple/AppleUpdate"
+import CardDetails from "../Components/CardDetails/CardDetails"
 
 const Router = createBrowserRouter([
     {
@@ -32,27 +34,35 @@ const Router = createBrowserRouter([
             { path: '/register', element: <Register /> },
 
             // Brands route
+
+            // apple 
             { path: '/Apple', element: <Apple />, loader: () => fetch('http://localhost:5000/apple') },
-            { path: '/apple/:id', element: <SamsungUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleApple/${params.id}`) },
+            { path: '/apple/:id', element: <AppleUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleApple/${params.id}`) },
+            { path: '/Apple/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`http://localhost:5000/singleApple/${params.id}`) },
 
             // samsung
             { path: '/Samsung', element: <Samsung />, loader: () => fetch('http://localhost:5000/samsung') },
             { path: '/samsung/:id', element: <SamsungUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleSamsung/${params.id}`) },
+            { path: '/Samsung/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`http://localhost:5000/singleSamsung/${params.id}`) },
 
             // sony
             { path: '/Sony', element: <Sony />, loader: () => fetch('http://localhost:5000/sony') },
             { path: '/sony/:id', element: <SonyUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleSony/${params.id}`) },
+            { path: '/Sony/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`http://localhost:5000/singleSony/${params.id}`) },
 
             // intel
             { path: '/Intel', element: <Intel />, loader: () => fetch('http://localhost:5000/intel') },
             { path: '/intel/:id', element: <IntelUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleIntel/${params.id}`) },
+            { path: '/Intel/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`http://localhost:5000/singleIntel/${params.id}`) },
 
             // hp
             { path: '/Hp', element: <Hp />, loader: () => fetch('http://localhost:5000/hp') },
             { path: '/hp/:id', element: <HpUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleHp/${params.id}`) },
+            { path: '/Hp/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`http://localhost:5000/singleHp/${params.id}`) },
 
             { path: '/Dell', element: <Dell />, loader: () => fetch('http://localhost:5000/dell') },
             { path: '/dell/:id', element: <DellUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleDell/${params.id}`) },
+            { path: '/Dell/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`http://localhost:5000/singleDell/${params.id}`) },
         ]
     }
 ])
