@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddProduct = () => {
+    const navigate = useNavigate();
 
     const handleAddProduct = e => {
         e.preventDefault();
@@ -26,6 +28,7 @@ const AddProduct = () => {
             .then((response) => response.json())
             .then((json) => {
                 if (json.insertedId) {
+                    navigate('/Apple');
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
