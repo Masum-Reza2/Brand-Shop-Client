@@ -35,6 +35,15 @@ const AddProduct = () => {
                     })
                     form.reset();
                 }
+                else {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Something went wrong!',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
+                }
             });
     }
 
