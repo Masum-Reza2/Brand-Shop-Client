@@ -1,7 +1,58 @@
 import PropTypes from 'prop-types';
+import Swal from 'sweetalert2';
 
-const MyCartCard = ({ singleData }) => {
-    const { image, name, brandName, type, price, shortDesc, rating, _id } = singleData;
+const MyCartCard = ({ singleData, setMyCarts, myCarts }) => {
+    const { image, name, brandName, type, price, rating, _id } = singleData;
+
+
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/singleCart/${id}`, {
+                    method: 'DELETE',
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount) {
+
+                            let remaining = myCarts.filter(cart => cart._id !== id);
+                            setMyCarts(remaining)
+
+                            Swal.fire(
+                                'Deleted!',
+                                'Your product has been deleted.',
+                                'success'
+                            )
+                        }
+                        else {
+                            Swal.fire(
+                                'Oops!',
+                                'Something went wrong!',
+                                'error'
+                            )
+                        }
+                    })
+
+
+            }
+            else {
+                Swal.fire(
+                    'Cancelled!',
+                    'Your product has is safe.',
+                    'success'
+                )
+            }
+        })
+    }
     return (
         <div>
             <div className="card card-compact h-full w-full border bg-base-100 shadow-xl ">
@@ -20,7 +71,7 @@ const MyCartCard = ({ singleData }) => {
                     </div>
 
                     <div className="card-actions justify-center pt-3">
-                        <button className='btn w-full'>Delete from cart</button>
+                        <button onClick={() => handleDelete(_id)} className='btn w-full'>Delete from cart</button>
                     </div>
                 </div>
             </div>
@@ -31,5 +82,7 @@ const MyCartCard = ({ singleData }) => {
 
 MyCartCard.propTypes = {
     singleData: PropTypes.object,
+    myCarts: PropTypes.array,
+    setMyCarts: PropTypes.func,
 }
 export default MyCartCard
