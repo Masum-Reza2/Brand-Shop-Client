@@ -8,7 +8,7 @@ const DellCard = ({ singleData }) => {
     return (
         <div>
             <div className="card card-compact h-full w-full border bg-base-100 shadow-xl ">
-                <figure><img className='h-[50vh] end-full' src={image} alt={`image of ${name}`} /></figure>
+                <figure><img className='h-[60vh] md:h-[50vh] w-full' src={image} alt={`image of ${name}`} /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{brandName}</h2>
                     <div className='flex items-center justify-between'>

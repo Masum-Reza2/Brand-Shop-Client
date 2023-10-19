@@ -39,7 +39,7 @@ const CardDetails = () => {
     return (
         <div className="min-h-[80vh] flex flex-col items-center justify-center">
             <div className="card card-compact w-[95vw] md:w-[60vw] lg:w-[50vw] my-5 border bg-base-100 shadow-xl">
-                <figure><img className='h-[50vh] end-full' src={image} alt={`image of ${name}`} /></figure>
+                <figure><img className='max-h-[60vh] w-[95vw] md:w-[60vw] lg:w-[50vw]' src={image} alt={`image of ${name}`} /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{brandName}</h2>
                     <div className='flex items-center justify-between'>
