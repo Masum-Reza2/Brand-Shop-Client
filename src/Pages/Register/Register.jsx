@@ -11,6 +11,7 @@ import welcomeMan from '../../assets/images/welcome-man-statue-500x500-removebg-
 const Register = () => {
     const { createUser, profileUpdate } = useGlobal();
     const navigate = useNavigate();
+    const { darkMode } = useGlobal();
 
     // toggling eye
     const [showPaas, setShowPaas] = useState(false);
@@ -52,7 +53,7 @@ const Register = () => {
                         creationTime: result?.user?.metadata?.creationTime,
                         lastSignInTime: result?.user?.metadata?.lastSignInTime,
                     }
-                    fetch('https://brand-shop-server-3bhh86akn-masum-rezas-projects.vercel.app/users', {
+                    fetch('https://brand-shop-server-d1mjb2tsx-masum-rezas-projects.vercel.app/users', {
                         method: 'POST',
                         body: JSON.stringify(userInfo),
                         headers: {
@@ -90,7 +91,7 @@ const Register = () => {
 
     return (
         <div className="py-5">
-            <form onSubmit={handleRegister} className="relative flex w-[90vw] md:w-[60vw] lg:w-[40vw] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-auto py-5">
+            <form onSubmit={handleRegister} className={`relative flex w-[90vw] md:w-[60vw] lg:w-[40vw] flex-col rounded-xl ${darkMode ? 'bg-slate-800 text-gray-200' : 'bg-white text-gray-700'} bg-clip-border  shadow-md mx-auto py-5`}>
 
                 <h1 className="text-center font-bold text-xl md:text-2xl">Please Register</h1>
 

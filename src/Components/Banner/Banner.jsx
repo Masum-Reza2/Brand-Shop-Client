@@ -1,12 +1,14 @@
+import useGlobal from '../../Hooks/useGlobal';
 import banner from '../../assets/images/banner.png';
 import logo from '../../assets/images/mainlogo.jpg';
 
 const Banner = () => {
+    const { darkMode } = useGlobal();
     return (
         <div className="py-5 w-[90%] mx-auto h-[70vh] rounded-xl relative flex flex-col items-center justify-center">
-            <img className='h-[60vh] rounded-xl md:h-[70vh] w-full absolute -z-20 brightness-50 top-5' src={banner} alt="" />
+            <img className='h-[60vh] rounded-xl md:h-[70vh] w-full absolute z-20 brightness-50 top-5' src={banner} alt="" />
 
-            <div className='text-justify px-5 text-white'>
+            <div className={`text-justify px-5 text-white z-50 ${darkMode && 'text-gray-200'}`}>
                 <div className='flex items-center justify-center gap-3'>
                     <h1 className='text-center text-3xl md:text-5xl font-bold'>B-Shop</h1>
                     <img src={logo} className='w-[50px] h-[50px] cursor-pointer rounded-full' alt="" />

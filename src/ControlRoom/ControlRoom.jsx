@@ -8,6 +8,12 @@ export const GlobalContext = createContext();
 const ControlRoom = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [darkMode, setDarkMode] = useState(false);
+
+    // const handleMode = () => {
+    //     setDarkMode(!darkMode);
+    //     console.log(darkMode);
+    // }
 
     // create user
     const createUser = (email, password) => {
@@ -53,6 +59,9 @@ const ControlRoom = ({ children }) => {
         profileUpdate,
         loginUser,
         googleLogin,
+
+        darkMode,
+        setDarkMode,
     }
     return (
         <GlobalContext.Provider value={globalInfo}>

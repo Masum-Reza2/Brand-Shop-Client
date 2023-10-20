@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useGlobal from "../../Hooks/useGlobal";
 
 const AddProduct = () => {
     const navigate = useNavigate();
+    const { darkMode } = useGlobal();
 
     const handleAddProduct = e => {
         e.preventDefault();
@@ -18,7 +20,7 @@ const AddProduct = () => {
         // console.log(image, name, brandName, type, price, shortDesc, rating);
         // sending to database
         const product = { image, name, brandName, type, price, shortDesc, rating }
-        fetch('https://brand-shop-server-3bhh86akn-masum-rezas-projects.vercel.app/apple', {
+        fetch('https://brand-shop-server-d1mjb2tsx-masum-rezas-projects.vercel.app/apple', {
             method: 'POST',
             body: JSON.stringify(product),
             headers: {
@@ -51,7 +53,7 @@ const AddProduct = () => {
     }
 
     return (
-        <div className="w-[90%] mx-auto py-5 min-h-screen md:min-h-[80vh] flex flex-col items-center justify-center">
+        <div className={`w-[90%] mx-auto py-5 min-h-screen md:min-h-[80vh] flex flex-col items-center justify-center ${darkMode && 'md:min-h-[90vh]'}`}>
             <h1 className="py-2 md:py-5 font-semibold">Add product for Apple.</h1>
             <form onSubmit={handleAddProduct} className="space-y-3">
                 {/* image and name */}

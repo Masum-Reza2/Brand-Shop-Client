@@ -13,6 +13,7 @@ const Login = () => {
     const { loginUser, googleLogin } = useGlobal();
     const navigate = useNavigate();
     const { state } = useLocation();
+    const { darkMode } = useGlobal();
 
 
     const [showPaas, setShowPaas] = useState(false);
@@ -45,7 +46,7 @@ const Login = () => {
                         email,
                         lastSignInTime: result?.user?.metadata?.lastSignInTime,
                     }
-                    fetch('https://brand-shop-server-3bhh86akn-masum-rezas-projects.vercel.app/user', {
+                    fetch('https://brand-shop-server-d1mjb2tsx-masum-rezas-projects.vercel.app/user', {
                         method: 'PATCH',
                         body: JSON.stringify(userInfo),
                         headers: {
@@ -84,7 +85,7 @@ const Login = () => {
                         creationTime: result?.user?.metadata?.creationTime || 'Gmail user',
                         lastSignInTime: result?.user?.metadata?.lastSignInTime,
                     }
-                    fetch('https://brand-shop-server-3bhh86akn-masum-rezas-projects.vercel.app/user', {
+                    fetch('https://brand-shop-server-d1mjb2tsx-masum-rezas-projects.vercel.app/user', {
                         method: 'PATCH',
                         body: JSON.stringify(userInfo),
                         headers: {
@@ -100,7 +101,7 @@ const Login = () => {
 
     return (
         <div className="py-5 min-h-screen flex flex-col items-center justify-center">
-            <form onSubmit={handleLogin} className="relative flex w-[90vw] md:w-[60vw] lg:w-[40vw] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-auto py-5">
+            <form onSubmit={handleLogin} className={`relative flex w-[90vw] md:w-[60vw] lg:w-[40vw] flex-col rounded-xl  ${darkMode ? 'bg-slate-800 text-gray-200' : 'bg-white text-gray-700'} bg-clip-border  shadow-md mx-auto py-5`}>
 
                 <h1 className="text-center font-bold text-xl md:text-2xl">Login</h1>
 

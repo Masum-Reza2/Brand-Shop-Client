@@ -1,12 +1,14 @@
 import { useLoaderData } from "react-router-dom"
 import Swal from "sweetalert2";
+import useGlobal from "../../Hooks/useGlobal";
 
 const CardDetails = () => {
+    const { darkMode } = useGlobal();
     const productDetails = useLoaderData();
     const { image, name, brandName, type, price, shortDesc, rating, _id } = productDetails;
     const myCartProduct = { image, name, brandName, type, price, shortDesc, rating };
     const handleAddToCart = () => {
-        fetch(`https://brand-shop-server-3bhh86akn-masum-rezas-projects.vercel.app/cart`, {
+        fetch(`https://brand-shop-server-d1mjb2tsx-masum-rezas-projects.vercel.app/cart`, {
             method: 'POST',
             body: JSON.stringify(myCartProduct),
             headers: {
@@ -37,7 +39,7 @@ const CardDetails = () => {
     }
 
     return (
-        <div className="min-h-[80vh] flex flex-col items-center justify-center">
+        <div className={`min-h-[80vh] flex flex-col items-center justify-center`}>
             <div className="card card-compact w-[95vw] md:w-[60vw] lg:w-[50vw] my-5 border bg-base-100 shadow-xl">
                 <figure><img className='max-h-[60vh] w-[95vw] md:w-[60vw] lg:w-[50vw]' src={image} alt={`image of ${name}`} /></figure>
                 <div className="card-body">

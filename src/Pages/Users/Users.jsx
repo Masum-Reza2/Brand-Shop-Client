@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom"
 import Swal from "sweetalert2";
+import useGlobal from "../../Hooks/useGlobal";
 
 const Users = () => {
     const loadedUsers = useLoaderData();
-    const [users, setUsers] = useState(loadedUsers)
+    const [users, setUsers] = useState(loadedUsers);
+    const { darkMode } = useGlobal();
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -17,7 +19,7 @@ const Users = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://brand-shop-server-3bhh86akn-masum-rezas-projects.vercel.app/user/${id}`, {
+                fetch(`https://brand-shop-server-d1mjb2tsx-masum-rezas-projects.vercel.app/user/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
@@ -54,7 +56,7 @@ const Users = () => {
     }
 
     return (
-        <div className="py-5 w-[90%] mx-auto">
+        <div className={`py-5 w-[90%] mx-auto min-h-[90vh] ${darkMode && 'text-gray-200'}`}>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

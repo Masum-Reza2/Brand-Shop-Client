@@ -7,9 +7,11 @@ import warantee from '../../assets/images/services/warranty-info_2197-removebg-p
 
 import { GrServices } from 'react-icons/gr';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs'
+import useGlobal from '../../Hooks/useGlobal'
 
 
 const OurServices = () => {
+    const { darkMode } = useGlobal();
     const allServices = [
         { name: 'Guarantee', img: guarntee, desc: 'likely provides assurance or warranty for products, ensuring their quality and performance.' },
         { name: 'Warantee', img: warantee, desc: 'likely extends coverage for product defects or damage during a specified period.' },
@@ -21,14 +23,14 @@ const OurServices = () => {
     return (
         <div>
 
-            <div className='md:ml-16 justify-center md:justify-normal mt-10 flex items-center gap-2'>
+            <div className={`md:ml-16 justify-center md:justify-normal mt-10 flex items-center gap-2 ${darkMode && 'text-gray-200'}`}>
                 <GrServices className='text-xl' />
                 <h1 className='text-lg md:text-xl font-semibold'>Services we provide 24/7.</h1>
                 <BsFillArrowRightCircleFill className='text-xl' />
             </div>
-            <div className='w-[90%] mx-auto grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-5'>
+            <div className={`w-[90%] mx-auto grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-5 ${darkMode && 'text-gray-200'}`}>
                 {
-                    allServices?.map((singleService, index) => <div key={index} className='h-full w-full flex flex-col shadow-md rounded-lg px-3 items-center justify-center cursor-pointer transition-all hover:bg-sky-100 duration-500 hover:scale-105'>
+                    allServices?.map((singleService, index) => <div key={index} className={`h-full w-full flex flex-col shadow-md rounded-lg px-3 items-center justify-center cursor-pointer transition-all ${darkMode ? 'hover:bg-black bg-slate-800' : 'hover:bg-sky-100'} duration-500 hover:scale-105 `}>
                         <img className='h-1/2 w-1/2' src={singleService.img} alt="" />
                         <h5 className='text-gray-500 font-semibold'>{singleService?.name}</h5>
                         <p className=''>{singleService?.desc}</p>

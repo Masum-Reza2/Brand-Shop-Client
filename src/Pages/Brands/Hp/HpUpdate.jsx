@@ -29,7 +29,7 @@ const HpUpdate = () => {
             confirmButtonText: 'Yes, update it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://brand-shop-server-3bhh86akn-masum-rezas-projects.vercel.app/singleHp/${_id}`, {
+                fetch(`https://brand-shop-server-d1mjb2tsx-masum-rezas-projects.vercel.app/singleHp/${_id}`, {
                     method: 'PUT',
                     body: JSON.stringify(updateProduct),
                     headers: {

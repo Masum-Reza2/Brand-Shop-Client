@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import Swal from 'sweetalert2';
+import useGlobal from '../../Hooks/useGlobal';
 
 const MyCartCard = ({ singleData, setMyCarts, myCarts }) => {
     const { image, name, brandName, type, price, rating, _id } = singleData;
-
+    const { darkMode } = useGlobal();
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -17,7 +18,7 @@ const MyCartCard = ({ singleData, setMyCarts, myCarts }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://brand-shop-server-3bhh86akn-masum-rezas-projects.vercel.app/singleCart/${id}`, {
+                fetch(`https://brand-shop-server-d1mjb2tsx-masum-rezas-projects.vercel.app/singleCart/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
@@ -55,7 +56,7 @@ const MyCartCard = ({ singleData, setMyCarts, myCarts }) => {
     }
     return (
         <div>
-            <div className="card card-compact h-full w-full border bg-base-100 shadow-xl ">
+            <div className={`card card-compact h-full w-full border bg-base-100 shadow-xl`}>
                 <figure><img className='h-[50vh] end-full' src={image} alt={`image of ${name}`} /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{brandName}</h2>
