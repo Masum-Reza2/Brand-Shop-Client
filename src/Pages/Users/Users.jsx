@@ -17,7 +17,7 @@ const Users = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://brand-shop-server-7zqsowcrw-masum-rezas-projects.vercel.app/user/${id}`, {
+                fetch(`https://brand-shop-server-475r99y11-masum-rezas-projects.vercel.app/user/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
@@ -73,7 +73,7 @@ const Users = () => {
                         {
                             users?.map((user, index) => <tr key={user?._id}>
                                 <th>{index + 1}</th>
-                                <td>{user?.name || 'Gmail-user'}</td>
+                                <td>{user?.name || 'google-login'}</td>
                                 <td>{user?.creationTime}</td>
                                 <td>{user?.lastSignInTime}</td>
                                 <td>{user?.emailVerified ? 'Yes' : 'No'}</td>
