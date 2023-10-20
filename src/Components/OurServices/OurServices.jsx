@@ -28,7 +28,7 @@ const OurServices = () => {
             </div>
             <div className='w-[90%] mx-auto grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-5'>
                 {
-                    allServices?.map((singleService, index) => <div key={index} className='h-full w-full flex flex-col shadow-md rounded-lg shadow-black px-3 items-center justify-center cursor-pointer transition-all hover:bg-sky-50 duration-300'>
+                    allServices?.map((singleService, index) => <div key={index} className='h-full w-full flex flex-col shadow-md rounded-lg px-3 items-center justify-center cursor-pointer transition-all hover:bg-sky-100 duration-500 hover:scale-105'>
                         <img className='h-1/2 w-1/2' src={singleService.img} alt="" />
                         <h5 className='text-gray-500 font-semibold'>{singleService?.name}</h5>
                         <p className=''>{singleService?.desc}</p>
