@@ -29,7 +29,7 @@ const IntelUpdate = () => {
             confirmButtonText: 'Yes, update it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://brand-shop-server-475r99y11-masum-rezas-projects.vercel.app/singleIntel/${_id}`, {
+                fetch(`https://brand-shop-server-3bhh86akn-masum-rezas-projects.vercel.app/singleIntel/${_id}`, {
                     method: 'PUT',
                     body: JSON.stringify(updateProduct),
                     headers: {
