@@ -7,7 +7,7 @@ const Sony = () => {
     const sonyData = useLoaderData();
     return (
         <>
-            <Slider url={'http://localhost:5000/sonySlider'} />
+            <Slider url={'https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/sonySlider'} />
             <h5 className="text-center font-semibold text-lg md:text-2xl mt-10 md:mt-16">Sony! Enhance your life.</h5>
             <div className="py-5 w-[90%] mx-auto grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {

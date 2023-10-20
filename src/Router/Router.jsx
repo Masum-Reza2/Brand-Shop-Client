@@ -29,41 +29,41 @@ const Router = createBrowserRouter([
         children: [
             { path: '/', element: <Home /> },
             { path: '/addProduct', element: <PrivateRoute><AddProduct /></PrivateRoute> },
-            { path: '/myCart', element: <PrivateRoute><MyCart /></PrivateRoute>, loader: () => fetch('http://localhost:5000/cart') },
+            { path: '/myCart', element: <PrivateRoute><MyCart /></PrivateRoute>, loader: () => fetch('https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/cart') },
             { path: '/login', element: <Login /> },
             { path: '/register', element: <Register /> },
 
             // Brands route
 
             // apple 
-            { path: '/Apple', element: <Apple />, loader: () => fetch('http://localhost:5000/apple') },
-            { path: '/apple/:id', element: <AppleUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleApple/${params.id}`) },
-            { path: '/Apple/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`http://localhost:5000/singleApple/${params.id}`) },
+            { path: '/Apple', element: <Apple />, loader: () => fetch('https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/apple') },
+            { path: '/apple/:id', element: <AppleUpdate />, loader: ({ params }) => fetch(`https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/singleApple/${params.id}`) },
+            { path: '/Apple/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/singleApple/${params.id}`) },
 
             // samsung
-            { path: '/Samsung', element: <Samsung />, loader: () => fetch('http://localhost:5000/samsung') },
-            { path: '/samsung/:id', element: <SamsungUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleSamsung/${params.id}`) },
-            { path: '/Samsung/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`http://localhost:5000/singleSamsung/${params.id}`) },
+            { path: '/Samsung', element: <Samsung />, loader: () => fetch('https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/samsung') },
+            { path: '/samsung/:id', element: <SamsungUpdate />, loader: ({ params }) => fetch(`https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/singleSamsung/${params.id}`) },
+            { path: '/Samsung/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/singleSamsung/${params.id}`) },
 
             // sony
-            { path: '/Sony', element: <Sony />, loader: () => fetch('http://localhost:5000/sony') },
-            { path: '/sony/:id', element: <SonyUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleSony/${params.id}`) },
-            { path: '/Sony/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`http://localhost:5000/singleSony/${params.id}`) },
+            { path: '/Sony', element: <Sony />, loader: () => fetch('https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/sony') },
+            { path: '/sony/:id', element: <SonyUpdate />, loader: ({ params }) => fetch(`https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/singleSony/${params.id}`) },
+            { path: '/Sony/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/singleSony/${params.id}`) },
 
             // intel
-            { path: '/Intel', element: <Intel />, loader: () => fetch('http://localhost:5000/intel') },
-            { path: '/intel/:id', element: <IntelUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleIntel/${params.id}`) },
-            { path: '/Intel/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`http://localhost:5000/singleIntel/${params.id}`) },
+            { path: '/Intel', element: <Intel />, loader: () => fetch('https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/intel') },
+            { path: '/intel/:id', element: <IntelUpdate />, loader: ({ params }) => fetch(`https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/singleIntel/${params.id}`) },
+            { path: '/Intel/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/singleIntel/${params.id}`) },
 
             // hp
-            { path: '/Hp', element: <Hp />, loader: () => fetch('http://localhost:5000/hp') },
-            { path: '/hp/:id', element: <HpUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleHp/${params.id}`) },
-            { path: '/Hp/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`http://localhost:5000/singleHp/${params.id}`) },
+            { path: '/Hp', element: <Hp />, loader: () => fetch('https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/hp') },
+            { path: '/hp/:id', element: <HpUpdate />, loader: ({ params }) => fetch(`https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/singleHp/${params.id}`) },
+            { path: '/Hp/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/singleHp/${params.id}`) },
 
             // dell
-            { path: '/Dell', element: <Dell />, loader: () => fetch('http://localhost:5000/dell') },
-            { path: '/dell/:id', element: <DellUpdate />, loader: ({ params }) => fetch(`http://localhost:5000/singleDell/${params.id}`) },
-            { path: '/Dell/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`http://localhost:5000/singleDell/${params.id}`) },
+            { path: '/Dell', element: <Dell />, loader: () => fetch('https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/dell') },
+            { path: '/dell/:id', element: <DellUpdate />, loader: ({ params }) => fetch(`https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/singleDell/${params.id}`) },
+            { path: '/Dell/details/:id', element: <CardDetails />, loader: ({ params }) => fetch(`https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/singleDell/${params.id}`) },
         ]
     }
 ])

@@ -29,7 +29,7 @@ const AppleUpdate = () => {
             confirmButtonText: 'Yes, update it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/singleApple/${_id}`, {
+                fetch(`https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/singleApple/${_id}`, {
                     method: 'PUT',
                     body: JSON.stringify(updateProduct),
                     headers: {
