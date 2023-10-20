@@ -75,6 +75,22 @@ const Login = () => {
                         // imageHeight: 200,
                         imageAlt: 'Custom image',
                     })
+
+                    // sending to database
+                    const userInfo = {
+                        name: result?.user?.displayName || 'Gmail user',
+                        email: result?.user?.email,
+                        emailVerified: result?.user?.emailVerified,
+                        creationTime: result?.user?.metadata?.creationTime || 'Gmail user',
+                        lastSignInTime: result?.user?.metadata?.lastSignInTime,
+                    }
+                    fetch('https://brand-shop-server-5ewaozpqq-masum-rezas-projects.vercel.app/user', {
+                        method: 'PATCH',
+                        body: JSON.stringify(userInfo),
+                        headers: {
+                            'Content-type': 'application/json; charset=UTF-8',
+                        },
+                    })
                 }
             })
             .catch(error => {
