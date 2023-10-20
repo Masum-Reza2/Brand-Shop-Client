@@ -39,6 +39,19 @@ const Login = () => {
                         // imageHeight: 200,
                         imageAlt: 'Custom image',
                     })
+
+                    // update login time in database 
+                    const userInfo = {
+                        email,
+                        lastSignInTime: result?.user?.metadata?.lastSignInTime,
+                    }
+                    fetch('https://brand-shop-server-5ewaozpqq-masum-rezas-projects.vercel.app/user', {
+                        method: 'PATCH',
+                        body: JSON.stringify(userInfo),
+                        headers: {
+                            'Content-type': 'application/json; charset=UTF-8',
+                        },
+                    })
                 }
             })
             .catch(error => {

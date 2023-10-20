@@ -30,7 +30,7 @@ const DellUpdate = () => {
             confirmButtonText: 'Yes, update it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://brand-shop-server-avi41dbny-masum-rezas-projects.vercel.app/singleDell/${_id}`, {
+                fetch(`https://brand-shop-server-5ewaozpqq-masum-rezas-projects.vercel.app/singleDell/${_id}`, {
                     method: 'PUT',
                     body: JSON.stringify(updateProduct),
                     headers: {

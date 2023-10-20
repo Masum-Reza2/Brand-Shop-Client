@@ -26,7 +26,7 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password);
+        // console.log(name, photo, email, password);
 
         // validations 
         if (password.length < 6) {
@@ -43,6 +43,22 @@ const Register = () => {
                     toast.success('Account created successfully!');
                     // signing out user to prevent auto login
                     signOut(auth);
+
+                    // sending to database
+                    const userInfo = {
+                        name,
+                        email,
+                        emailVerified: result?.user?.emailVerified,
+                        creationTime: result?.user?.metadata?.creationTime,
+                        lastSignInTime: result?.user?.metadata?.lastSignInTime,
+                    }
+                    fetch('https://brand-shop-server-5ewaozpqq-masum-rezas-projects.vercel.app/users', {
+                        method: 'POST',
+                        body: JSON.stringify(userInfo),
+                        headers: {
+                            'Content-type': 'application/json; charset=UTF-8',
+                        },
+                    })
 
                     // profile update
                     profileUpdate(name, photo)
