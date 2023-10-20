@@ -29,7 +29,7 @@ const SamsungUpdate = () => {
             confirmButtonText: 'Yes, update it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://brand-shop-server-5ewaozpqq-masum-rezas-projects.vercel.app/singleSamsung/${_id}`, {
+                fetch(`https://brand-shop-server-7zqsowcrw-masum-rezas-projects.vercel.app/singleSamsung/${_id}`, {
                     method: 'PUT',
                     body: JSON.stringify(updateProduct),
                     headers: {
