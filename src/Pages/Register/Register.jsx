@@ -53,7 +53,7 @@ const Register = () => {
                         creationTime: result?.user?.metadata?.creationTime,
                         lastSignInTime: result?.user?.metadata?.lastSignInTime,
                     }
-                    fetch('https://brand-shop-server-d1mjb2tsx-masum-rezas-projects.vercel.app/users', {
+                    fetch('https://brand-shop-server-a6as5zjxj-masum-rezas-projects.vercel.app/users', {
                         method: 'POST',
                         body: JSON.stringify(userInfo),
                         headers: {

@@ -20,7 +20,7 @@ const AddProduct = () => {
         // console.log(image, name, brandName, type, price, shortDesc, rating);
         // sending to database
         const product = { image, name, brandName, type, price, shortDesc, rating }
-        fetch('https://brand-shop-server-d1mjb2tsx-masum-rezas-projects.vercel.app/apple', {
+        fetch('https://brand-shop-server-a6as5zjxj-masum-rezas-projects.vercel.app/apple', {
             method: 'POST',
             body: JSON.stringify(product),
             headers: {

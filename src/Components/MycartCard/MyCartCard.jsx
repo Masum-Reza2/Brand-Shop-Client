@@ -18,7 +18,7 @@ const MyCartCard = ({ singleData, setMyCarts, myCarts }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://brand-shop-server-d1mjb2tsx-masum-rezas-projects.vercel.app/singleCart/${id}`, {
+                fetch(`https://brand-shop-server-a6as5zjxj-masum-rezas-projects.vercel.app/singleCart/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())

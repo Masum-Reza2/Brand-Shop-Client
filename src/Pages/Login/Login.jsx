@@ -46,7 +46,7 @@ const Login = () => {
                         email,
                         lastSignInTime: result?.user?.metadata?.lastSignInTime,
                     }
-                    fetch('https://brand-shop-server-d1mjb2tsx-masum-rezas-projects.vercel.app/user', {
+                    fetch('https://brand-shop-server-a6as5zjxj-masum-rezas-projects.vercel.app/user', {
                         method: 'PATCH',
                         body: JSON.stringify(userInfo),
                         headers: {
@@ -85,7 +85,7 @@ const Login = () => {
                         creationTime: result?.user?.metadata?.creationTime || 'Gmail user',
                         lastSignInTime: result?.user?.metadata?.lastSignInTime,
                     }
-                    fetch('https://brand-shop-server-d1mjb2tsx-masum-rezas-projects.vercel.app/user', {
+                    fetch('https://brand-shop-server-a6as5zjxj-masum-rezas-projects.vercel.app/user', {
                         method: 'PATCH',
                         body: JSON.stringify(userInfo),
                         headers: {

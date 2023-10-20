@@ -8,7 +8,7 @@ const CardDetails = () => {
     const { image, name, brandName, type, price, shortDesc, rating, _id } = productDetails;
     const myCartProduct = { image, name, brandName, type, price, shortDesc, rating };
     const handleAddToCart = () => {
-        fetch(`https://brand-shop-server-d1mjb2tsx-masum-rezas-projects.vercel.app/cart`, {
+        fetch(`https://brand-shop-server-a6as5zjxj-masum-rezas-projects.vercel.app/cart`, {
             method: 'POST',
             body: JSON.stringify(myCartProduct),
             headers: {
