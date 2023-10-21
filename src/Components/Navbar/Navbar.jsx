@@ -35,7 +35,7 @@ const Navbar = () => {
         <div>
             <div className="navbar bg-indigo-200 shadow-md shadow-black">
                 {/* mobile */}
-                <div className="navbar-start">
+                <div className="navbar-start z-50">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-10 md:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -89,7 +89,7 @@ const Navbar = () => {
                                 <button className="btn btn-outline" onClick={handleLogOut}>Logout</button>
                             </div>
 
-                            <div className="dropdown dropdown-end md:hidden">
+                            <div className="dropdown dropdown-end md:hidden z-50">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                     <div className="w-12 rounded-full">
                                         <img src={user?.photoURL || defaultProfile} />
