@@ -100,7 +100,7 @@ const Login = () => {
     }
 
     return (
-        <div className="py-5 min-h-screen flex flex-col items-center justify-center">
+        <div className="py-5 flex flex-col items-center justify-center">
             <form onSubmit={handleLogin} className={`relative flex w-[90vw] md:w-[60vw] lg:w-[40vw] flex-col rounded-xl  ${darkMode ? 'bg-slate-800 text-gray-200' : 'bg-white text-gray-700'} bg-clip-border  shadow-md mx-auto py-5`}>
 
                 <h1 className="text-center font-bold text-xl md:text-2xl">Login</h1>
